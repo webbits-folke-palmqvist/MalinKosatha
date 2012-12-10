@@ -30,3 +30,73 @@ trigger_error called
      from require_once (functions-basic.php [144])
        from require_once (functions.php [18])
          from setup_permissions_changer.php [9]
+{Mon, 10 Dec 2012 16:08:03 GMT}
+  Backtrace: WARNING: Cannot modify header information - headers already sent by (output started at /Users/Folke/Documents/Arbete/kunder/MalinKosatha/Hemsida/themes/m9/theme_description.php:1) in /Users/Folke/Documents/Arbete/kunder/MalinKosatha/Hemsida/zp-core/admin-functions.php on line 109
+header called
+ from printAdminHeader (admin-functions.php [109])
+   from admin-themes-editor.php [70]
+{Mon, 10 Dec 2012 16:08:03 GMT}
+  Backtrace: WARNING: Cannot modify header information - headers already sent by (output started at /Users/Folke/Documents/Arbete/kunder/MalinKosatha/Hemsida/themes/m9/theme_description.php:1) in /Users/Folke/Documents/Arbete/kunder/MalinKosatha/Hemsida/zp-core/admin-functions.php on line 110
+header called
+ from printAdminHeader (admin-functions.php [110])
+   from admin-themes-editor.php [70]
+{Mon, 10 Dec 2012 16:08:09 GMT}
+  Backtrace: WARNING: Cannot modify header information - headers already sent by (output started at /Users/Folke/Documents/Arbete/kunder/MalinKosatha/Hemsida/themes/m9/theme_description.php:1) in /Users/Folke/Documents/Arbete/kunder/MalinKosatha/Hemsida/zp-core/admin-functions.php on line 109
+header called
+ from printAdminHeader (admin-functions.php [109])
+   from admin-themes-editor.php [70]
+{Mon, 10 Dec 2012 16:08:09 GMT}
+  Backtrace: WARNING: Cannot modify header information - headers already sent by (output started at /Users/Folke/Documents/Arbete/kunder/MalinKosatha/Hemsida/themes/m9/theme_description.php:1) in /Users/Folke/Documents/Arbete/kunder/MalinKosatha/Hemsida/zp-core/admin-functions.php on line 110
+header called
+ from printAdminHeader (admin-functions.php [110])
+   from admin-themes-editor.php [70]
+{Mon, 10 Dec 2012 16:08:12 GMT}
+  Backtrace: WARNING: Cannot modify header information - headers already sent by (output started at /Users/Folke/Documents/Arbete/kunder/MalinKosatha/Hemsida/themes/m9/theme_description.php:1) in /Users/Folke/Documents/Arbete/kunder/MalinKosatha/Hemsida/zp-core/admin-functions.php on line 109
+header called
+ from printAdminHeader (admin-functions.php [109])
+   from admin-themes-editor.php [70]
+{Mon, 10 Dec 2012 16:08:12 GMT}
+  Backtrace: WARNING: Cannot modify header information - headers already sent by (output started at /Users/Folke/Documents/Arbete/kunder/MalinKosatha/Hemsida/themes/m9/theme_description.php:1) in /Users/Folke/Documents/Arbete/kunder/MalinKosatha/Hemsida/zp-core/admin-functions.php on line 110
+header called
+ from printAdminHeader (admin-functions.php [110])
+   from admin-themes-editor.php [70]
+{Mon, 10 Dec 2012 16:12:11 GMT}
+  Backtrace: WARNING: Cannot modify header information - headers already sent by (output started at /Users/Folke/Documents/Arbete/kunder/MalinKosatha/Hemsida/themes/m9/theme_description.php:1) in /Users/Folke/Documents/Arbete/kunder/MalinKosatha/Hemsida/zp-core/admin-functions.php on line 109
+header called
+ from printAdminHeader (admin-functions.php [109])
+   from admin-themes-editor.php [70]
+{Mon, 10 Dec 2012 16:12:11 GMT}
+  Backtrace: WARNING: Cannot modify header information - headers already sent by (output started at /Users/Folke/Documents/Arbete/kunder/MalinKosatha/Hemsida/themes/m9/theme_description.php:1) in /Users/Folke/Documents/Arbete/kunder/MalinKosatha/Hemsida/zp-core/admin-functions.php on line 110
+header called
+ from printAdminHeader (admin-functions.php [110])
+   from admin-themes-editor.php [70]
+{Mon, 10 Dec 2012 16:12:31 GMT}
+  Backtrace: WARNING: Cannot modify header information - headers already sent by (output started at /Users/Folke/Documents/Arbete/kunder/MalinKosatha/Hemsida/themes/m9/theme_description.php:1) in /Users/Folke/Documents/Arbete/kunder/MalinKosatha/Hemsida/zp-core/admin-functions.php on line 109
+header called
+ from printAdminHeader (admin-functions.php [109])
+   from admin-themes-editor.php [70]
+{Mon, 10 Dec 2012 16:12:31 GMT}
+  Backtrace: WARNING: Cannot modify header information - headers already sent by (output started at /Users/Folke/Documents/Arbete/kunder/MalinKosatha/Hemsida/themes/m9/theme_description.php:1) in /Users/Folke/Documents/Arbete/kunder/MalinKosatha/Hemsida/zp-core/admin-functions.php on line 110
+header called
+ from printAdminHeader (admin-functions.php [110])
+   from admin-themes-editor.php [70]
+{Mon, 10 Dec 2012 16:12:32 GMT}
+  Backtrace: WARNING: require_once(/Users/Folke/Documents/Arbete/kunder/MalinKosatha/Hemsida/themes/Webbits/joshuaink.php): failed to open stream: No such file or directory in /Users/Folke/Documents/Arbete/kunder/MalinKosatha/Hemsida/themes/Webbits/index.php on line 2
+require_once called
+ from include (index.php [2])
+   from index.php [92]
+{Mon, 10 Dec 2012 16:12:33 GMT}
+  Backtrace: WARNING: require_once(joshuaink.php): failed to open stream: No such file or directory in /Users/Folke/Documents/Arbete/kunder/MalinKosatha/Hemsida/themes/Webbits/index.php on line 2
+require_once called
+ from include (index.php [2])
+   from index.php [92]
+{Mon, 10 Dec 2012 16:12:46 GMT}
+  Backtrace: WARNING: Cannot modify header information - headers already sent by (output started at /Users/Folke/Documents/Arbete/kunder/MalinKosatha/Hemsida/themes/m9/theme_description.php:1) in /Users/Folke/Documents/Arbete/kunder/MalinKosatha/Hemsida/zp-core/admin-functions.php on line 109
+header called
+ from printAdminHeader (admin-functions.php [109])
+   from admin-themes-editor.php [70]
+{Mon, 10 Dec 2012 16:12:46 GMT}
+  Backtrace: WARNING: Cannot modify header information - headers already sent by (output started at /Users/Folke/Documents/Arbete/kunder/MalinKosatha/Hemsida/themes/m9/theme_description.php:1) in /Users/Folke/Documents/Arbete/kunder/MalinKosatha/Hemsida/zp-core/admin-functions.php on line 110
+header called
+ from printAdminHeader (admin-functions.php [110])
+   from admin-themes-editor.php [70]
