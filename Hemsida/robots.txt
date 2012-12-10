@@ -1,0 +1,10 @@
+User-agent: *
+Disallow: /MalinKosatha/Hemsida/albums/
+Allow: /MalinKosatha/Hemsida/cache/
+Allow: /MalinKosatha/Hemsida/cache_html/
+Disallow: /MalinKosatha/Hemsida/themes/
+Disallow: /MalinKosatha/Hemsida/zp-core/
+Disallow: /MalinKosatha/Hemsida/zp-data/
+Disallow: /MalinKosatha/Hemsida/page/search/
+Disallow: /MalinKosatha/Hemsida/uploaded/
+Disallow: /MalinKosatha/Hemsida/backup/

@@ -1,0 +1,4 @@
+Zenphoto Setup v1.4.3.5[11059]: Mon, 10 Dec 2012 16:48:38 +0100
+Warn: Zenphoto attempts to make log files accessable by owner only (permissions = 0600). This attempt has failed. The log file permissions are 0644 which may allow unauthorized access.
+Warn: If file permissions are not set to strict or tighter there could be a security risk. However, on some servers Zenphoto does not function correctly with tight file permissions. If Zenphoto has permission errors, run setup again and select a more relaxed permission.Set File permissions to 	readonly (0444)	strict (0644)	relaxed (0664)	loose (0666)apply.
+Setting permissions (0664) for Zenphoto package.

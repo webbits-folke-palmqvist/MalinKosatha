@@ -1,0 +1,32 @@
+{Mon, 10 Dec 2012 15:48:38 GMT} Zenphoto v1.4.3.5[11059]
+  Backtrace: USER ERROR: MySQL Error: The database is connected, but MySQL returned the error <em>No database selected</em> when Zenphoto tried to select the database . in /Users/Folke/Documents/Arbete/kunder/MalinKosatha/Hemsida/zp-core/functions-basic.php on line 922
+trigger_error called
+ from zp_error (functions-basic.php [922])
+   from db_connect (functions-db-MySQL.php [31])
+     from require_once (functions-basic.php [144])
+       from require_once (functions.php [18])
+         from setup_permissions_changer.php [9]
+{Mon, 10 Dec 2012 15:48:38 GMT}
+  Backtrace: USER ERROR: MySQL Error: The database is connected, but MySQL returned the error <em>No database selected</em> when Zenphoto tried to select the database . in /Users/Folke/Documents/Arbete/kunder/MalinKosatha/Hemsida/zp-core/functions-basic.php on line 922
+trigger_error called
+ from zp_error (functions-basic.php [922])
+   from db_connect (functions-db-MySQL.php [31])
+     from require_once (functions-basic.php [144])
+       from require_once (functions.php [18])
+         from setup_permissions_changer.php [9]
+{Mon, 10 Dec 2012 15:48:38 GMT}
+  Backtrace: USER ERROR: MySQL Error: The database is connected, but MySQL returned the error <em>No database selected</em> when Zenphoto tried to select the database . in /Users/Folke/Documents/Arbete/kunder/MalinKosatha/Hemsida/zp-core/functions-basic.php on line 922
+trigger_error called
+ from zp_error (functions-basic.php [922])
+   from db_connect (functions-db-MySQL.php [31])
+     from require_once (functions-basic.php [144])
+       from require_once (functions.php [18])
+         from setup_permissions_changer.php [9]
+{Mon, 10 Dec 2012 15:48:38 GMT}
+  Backtrace: USER ERROR: MySQL Error: The database is connected, but MySQL returned the error <em>No database selected</em> when Zenphoto tried to select the database . in /Users/Folke/Documents/Arbete/kunder/MalinKosatha/Hemsida/zp-core/functions-basic.php on line 922
+trigger_error called
+ from zp_error (functions-basic.php [922])
+   from db_connect (functions-db-MySQL.php [31])
+     from require_once (functions-basic.php [144])
+       from require_once (functions.php [18])
+         from setup_permissions_changer.php [9]
