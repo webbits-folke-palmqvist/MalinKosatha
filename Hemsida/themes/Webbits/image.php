@@ -32,9 +32,9 @@ if (!defined('WEBPATH')) die(); $themeResult = getTheme($zenCSS, $themeColor, 'l
 			<div id="gallerytitle">
 				<div class="imgnav">
 					<?php if (hasPrevImage()) { ?>
-						<div class="imgprevious"><a href="<?php echo html_encode(getPrevImageURL()); ?>" title="<?php echo gettext("Previous Image"); ?>">« <?php echo gettext("prev"); ?></a></div>
+						<div class="imgprevious"><a href="<?php echo html_encode(getPrevImageURL()); ?>" title="<?php echo gettext("Previous Image"); ?>">« Tillbaka</a></div>
 					<?php } if (hasNextImage()) { ?>
-						<div class="imgnext"><a href="<?php echo html_encode(getNextImageURL()); ?>" title="<?php echo gettext("Next Image"); ?>"><?php echo gettext("next"); ?> »</a></div>
+						<div class="imgnext"><a href="<?php echo html_encode(getNextImageURL()); ?>" title="<?php echo gettext("Next Image"); ?>">Nästa »</a></div>
 					<?php } ?>
 				</div>
 				<h2>
@@ -54,11 +54,6 @@ if (!defined('WEBPATH')) die(); $themeResult = getTheme($zenCSS, $themeColor, 'l
 				<strong>
 					<?php
 					$fullimage = getFullImageURL();
-					if (!empty($fullimage)) {
-						?>
-						<a href="<?php echo html_encode($fullimage); ?>" title="<?php echo getBareImageTitle(); ?>">
-							<?php
-						}
 						if (function_exists('printUserSizeImage') && isImagePhoto()) {
 							printUserSizeImage(getImageTitle());
 						} else {
@@ -94,12 +89,6 @@ if (!defined('WEBPATH')) die(); $themeResult = getTheme($zenCSS, $themeColor, 'l
 				<?php @call_user_func('printRating'); ?>
 				<?php @call_user_func('printCommentForm'); ?>
 			</div>
-		</div>
-		<div id="credit">
-			<?php printRSSLink('Gallery', '', 'RSS', ' | '); ?>
-			<?php printCustomPageURL(gettext("Archive View"), "archive"); ?> |
-			<?php printZenphotoLink(); ?>
-			<?php @call_user_func('printUserLogin_out'," | "); ?>
 		</div>
 		<?php
 		printAdminToolbox();
