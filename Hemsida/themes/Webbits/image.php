@@ -1,37 +1,109 @@
-﻿<?php if (!defined('WEBPATH')) die(); require_once ('functions.php'); getHitcounter($_zp_current_image); ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<?php
+// force UTF-8 Ø
+
+if (!defined('WEBPATH')) die(); $themeResult = getTheme($zenCSS, $themeColor, 'light');
+?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
-<?php include_once('header.php'); ?>
-		<meta name="keywords" content="<?php echo html_encode(getMainSiteName().', '.getGalleryTitle().', '.getAlbumTitle().', '.getImageTitle()); ?>" />
-		<meta name="description" content="<?php echo html_encode(getImageTitle().' / '.getImageDesc()); ?>" />
-		<title><?php echo strip_tags(getMainSiteName().' / '.getGalleryTitle().' / '.getAlbumTitle().' / '.getImageTitle()); ?></title>
+		<?php zp_apply_filter('theme_head'); ?>
+		<title><?php echo getBareGalleryTitle(); ?> | <?php echo getBareAlbumTitle(); ?> | <?php echo getBareImageTitle(); ?></title>
+		<meta http-equiv="content-type" content="text/html; charset=<?php echo LOCAL_CHARSET; ?>" />
+		<link rel="stylesheet" href="<?php echo pathurlencode($zenCSS); ?>" type="text/css" />
+		<link rel="stylesheet" href="<?php echo WEBPATH.'/'.THEMEFOLDER; ?>/default/common.css" type="text/css" />
+		<?php if (zp_has_filter('theme_head', 'colorbox::css')) { ?>
+			<script type="text/javascript">
+				// <!-- <![CDATA[
+				$(document).ready(function(){
+					$(".colorbox").colorbox({
+						inline:true,
+						href:"#imagemetadata",
+						close: '<?php echo gettext("close"); ?>'
+					});
+				});
+				// ]]> -->
+			</script>
+		<?php } ?>
+		<?php printRSSHeaderLink('Gallery', gettext('Gallery RSS')); ?>
 	</head>
-	<body id="gallery-image" class="<?php echo 'album-'.$_zp_current_album->getID().' image-'.$_zp_current_image->getID(); ?>">
-		<div id="wrapper">
-			<div id="header">
-				<ul class="path c">
-					<li><h1><a href="<?php echo getMainSiteURL(); ?>"><?php echo getMainSiteName(); ?></a></h1></li>
-					<li><h2><a href="<?php echo getGalleryIndexURL(); ?>"><?php echo getGalleryTitle(); ?></a></h2></li>
-					<?php m9PrintBreadcrumb(); ?>
-					<li><a href="<?php echo getAlbumLinkURL(); ?>"><?php echo getAlbumTitle(); ?></a></li>
-				</ul>
-				<ul class="move">
-					<li><?php if (hasPrevImage()): ?><a href="<?php echo htmlspecialchars(getPrevImageURL()); ?>">Prev</a><?php else: ?><span>Prev</span><?php endif; ?></li>
-					<li><?php if (hasNextImage()): ?><a href="<?php echo htmlspecialchars(getNextImageURL()); ?>">Next</a><?php else: ?><span>Next</span><?php endif; ?></li>
-				</ul>	
-			</div>
-			<div id="content" class="c">
-				<div class="view c"><?php printDefaultSizedImage(html_encode(getImageTitle()), 'image', 'player'); ?></div>
-				<div class="data">
-					<?php if(getImageTitle()) echo '<div class="c"><h4 class="box title">'.getImageTitle().'</h4></div>'; ?>
-					<?php if(getImageDesc()) echo '<div class="c"><div class="box desc">'.getImageDesc().'</div></div>'; ?>
-					<?php	if(getImageLocation()) echo '<div class="c"><small class="box location">'.getImageLocation().'</small></div>'; ?>
-					<?php if(getImageDate()) echo '<div class="c"><small class="box date">'.getImageDate('%d.%m.%y %H:%M').'</small></div>'; ?>
+	<body>
+		<?php zp_apply_filter('theme_body_open'); ?>
+		<div id="main">
+			<div id="gallerytitle">
+				<div class="imgnav">
+					<?php if (hasPrevImage()) { ?>
+						<div class="imgprevious"><a href="<?php echo html_encode(getPrevImageURL()); ?>" title="<?php echo gettext("Previous Image"); ?>">« <?php echo gettext("prev"); ?></a></div>
+					<?php } if (hasNextImage()) { ?>
+						<div class="imgnext"><a href="<?php echo html_encode(getNextImageURL()); ?>" title="<?php echo gettext("Next Image"); ?>"><?php echo gettext("next"); ?> »</a></div>
+					<?php } ?>
 				</div>
+				<h2>
+					<span>
+						<?php printHomeLink('', ' | '); ?>
+						<a href="<?php echo html_encode(getGalleryIndexURL()); ?>" title="<?php gettext('Albums Index'); ?>"><?php echo getGalleryTitle(); ?></a> |
+						<?php
+						printParentBreadcrumb("", " | ", " | ");
+						printAlbumBreadcrumb("", " | ");
+						?>
+					</span>
+					<?php printImageTitle(true); ?>
+				</h2>
 			</div>
-<?php include_once('footer.php'); ?>
+			<!-- The Image -->
+			<div id="image">
+				<strong>
+					<?php
+					$fullimage = getFullImageURL();
+					if (!empty($fullimage)) {
+						?>
+						<a href="<?php echo html_encode($fullimage); ?>" title="<?php echo getBareImageTitle(); ?>">
+							<?php
+						}
+						if (function_exists('printUserSizeImage') && isImagePhoto()) {
+							printUserSizeImage(getImageTitle());
+						} else {
+							printDefaultSizedImage(getImageTitle());
+						}
+						if (!empty($fullimage)) {
+							?>
+						</a>
+						<?php
+					}
+					?>
+				</strong>
+				<?php
+				if (isImagePhoto())
+					@call_user_func('printUserSizeSelector');
+				?>
+			</div>
+			<div id="narrow">
+				<?php printImageDesc(true); ?>
+				<hr /><br />
+				<?php
+				if (getImageMetaData()) {
+					echo printImageMetadata(NULL, 'colorbox');
+					?>
+					<br clear="all" />
+					<?php
+				}
+				printTags('links', gettext('<strong>Tags:</strong>') . ' ', 'taglist', '');
+				?>
+				<br clear="all" />
+				<?php @call_user_func('printSlideShowLink'); ?>
+				<?php @call_user_func('printGoogleMap'); ?>
+				<?php @call_user_func('printRating'); ?>
+				<?php @call_user_func('printCommentForm'); ?>
+			</div>
 		</div>
-<?php include_once('analytics.php'); ?>
+		<div id="credit">
+			<?php printRSSLink('Gallery', '', 'RSS', ' | '); ?>
+			<?php printCustomPageURL(gettext("Archive View"), "archive"); ?> |
+			<?php printZenphotoLink(); ?>
+			<?php @call_user_func('printUserLogin_out'," | "); ?>
+		</div>
+		<?php
+		printAdminToolbox();
+		zp_apply_filter('theme_body_close');
+		?>
 	</body>
 </html>

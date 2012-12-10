@@ -1,48 +1,67 @@
-<?php if (!defined('WEBPATH')) die(); require_once ('functions.php'); getHitcounter($_zp_current_album); ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<?php
+// force UTF-8 Ø
+
+if (!defined('WEBPATH')) die(); $themeResult = getTheme($zenCSS, $themeColor, 'light');
+?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
-<?php include_once('header.php'); ?>
-		<meta name="keywords" content="<?php echo html_encode(getMainSiteName().', '.getGalleryTitle().', '.getAlbumTitle()); ?>" />
-		<meta name="description" content="<?php echo html_encode(getAlbumTitle().' / '.getAlbumDesc()); ?>" />
-		<title><?php echo strip_tags(getMainSiteName().' / '.getGalleryTitle().' / '.getAlbumTitle()); ?></title>
+		<?php zp_apply_filter('theme_head'); ?>
+		<title><?php echo getBareGalleryTitle(); ?> | <?php echo getBareAlbumTitle(); if ($_zp_page>1) echo "[$_zp_page]"; ?></title>
+		<meta http-equiv="content-type" content="text/html; charset=<?php echo LOCAL_CHARSET; ?>" />
+		<link rel="stylesheet" href="<?php echo pathurlencode($zenCSS); ?>" type="text/css" />
+		<?php printRSSHeaderLink('Album', getAlbumTitle()); ?>
 	</head>
-	<body id="gallery-album" class="<?php echo 'album-'.$_zp_current_album->getID().' page-'.getCurrentPage(); ?>">
-		<div id="wrapper">
-			<div id="header">
-				<ul class="path c">
-					<li><h1><a href="<?php echo getMainSiteURL(); ?>"><?php echo getMainSiteName(); ?></a></h1></li>
-					<li><h2><a href="<?php echo getGalleryIndexURL(); ?>"><?php echo getGalleryTitle(); ?></a></h2></li>
-					<?php m9PrintBreadcrumb(); ?>
-					<li><a href="<?php echo getAlbumLinkURL(); ?>"><?php echo getAlbumTitle(); ?></a></li>
-				</ul>
-				<ul class="move">
-					<li><?php if (hasPrevPage()): ?><a href="<?php echo htmlspecialchars(getPrevPageURL()); ?>">Prev</a><?php else: ?><span>Prev</span><?php endif; ?></li>
-					<li><?php if (hasNextPage()): ?><a href="<?php echo htmlspecialchars(getNextPageURL()); ?>">Next</a><?php else: ?><span>Next</span><?php endif; ?></li>
-				</ul>	
+	<body>
+		<?php zp_apply_filter('theme_body_open'); ?>
+		<div id="main">
+			<div id="gallerytitle">
+				<h2>
+					<span>
+						<?php printHomeLink('', '  '); ?>
+						<a href="<?php echo html_encode(getGalleryIndexURL()); ?>" title="<?php echo gettext('Albums Index'); ?>"><?php echo getGalleryTitle(); ?></a> |
+						<?php printParentBreadcrumb(); ?>
+					</span>
+					<?php printAlbumTitle(true); ?>
+				</h2>
 			</div>
-			<div id="content" class="c">
-				<ul class="list c">
-<?php while (next_album()): ?>
-					<li id="<?php echo 'album-'.$_zp_current_album->getID(); ?>" class="album"><a title="<?php echo html_encode(getAlbumTitle()); ?>" href="<?php echo getAlbumLinkURL(); ?>">
-						<img src="<?php echo getCustomAlbumThumb(298, NULL, NULL, 298, 178, NULL, NULL, false); ?>" alt="<?php echo html_encode(getAlbumTitle()); ?>" />
-						<span><?php echo getAlbumTitle(); ?></span>
-					</a></li>
-<?php endwhile; ?>
-<?php while (next_image()): ?>
-					<li id="<?php echo ' image-'.$_zp_current_image->getID(); ?>" class="image"><a title="<?php echo html_encode(getImageTitle()); ?>" href="<?php echo getImageLinkURL(); ?>">
-						<img src="<?php echo getCustomImageURL(298, NULL, NULL, 298, 178, NULL, NULL, false); ?>" alt="<?php echo html_encode(getAlbumTitle()); ?>" />
-					</a></li>
-<?php endwhile; ?>
-				</ul>
-				<div class="data">
-					<?php if(getAlbumTitle()) echo '<div class="c"><h4 class="box title">'.getAlbumTitle().'</h4></div>'; ?>
-					<?php if(getAlbumDesc()) echo '<div class="c"><div class="box desc">'.getAlbumDesc().'</div></div>'; ?>
-					<?php if(getAlbumDate()) echo '<div class="c"><small class="box date">'.getAlbumDate('%d.%m.%y %H:%M').'</small></div>'; ?>
+			<div id="padbox">
+				<?php printAlbumDesc(true); ?>
+				<div id="albums">
+					<?php while (next_album()): ?>
+						<div class="album">
+							<div class="thumb">
+								<a href="<?php echo html_encode(getAlbumLinkURL()); ?>" title="<?php echo gettext('View album:'); ?> <?php echo getAnnotatedAlbumTitle(); ?>"><?php printAlbumThumbImage(getAnnotatedAlbumTitle()); ?></a>
+								</div>
+							<div class="albumdesc">
+								<h3><a href="<?php echo html_encode(getAlbumLinkURL()); ?>" title="<?php echo gettext('View album:'); ?> <?php echo getAnnotatedAlbumTitle(); ?>"><?php printAlbumTitle(); ?></a></h3>
+								<small><?php printAlbumDate(""); ?></small>
+								<div><?php printAlbumDesc(); ?></div>
+							</div>
+							<p style="clear: both; "></p>
+						</div>
+					<?php endwhile; ?>
 				</div>
+				<div id="images">
+					<?php while (next_image()): ?>
+						<div class="image">
+							<div class="imagethumb">
+								<a href="<?php echo html_encode(getImageLinkURL()); ?>" title="<?php echo getBareImageTitle(); ?>"><?php printImageThumb(getAnnotatedImageTitle()); ?></a>
+							</div>
+						</div>
+					<?php endwhile; ?>
+				</div>
+				<?php printPageListWithNav("« " . gettext("prev"), gettext("next") . " »"); ?>
+				<?php printTags('links', gettext('<strong>Tags:</strong>') . ' ', 'taglist', ''); ?>
+				<?php @call_user_func('printGoogleMap'); ?>
+				<?php @call_user_func('printSlideShowLink'); ?>
+				<?php @call_user_func('printRating'); ?>
+				<?php @call_user_func('printCommentForm'); ?>
 			</div>
-<?php include_once('footer.php'); ?>
 		</div>
-<?php include_once('analytics.php'); ?>
+		<?php
+		printAdminToolbox();
+		zp_apply_filter('theme_body_close');
+		?>
 	</body>
 </html>

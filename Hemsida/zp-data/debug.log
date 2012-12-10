@@ -100,3 +100,10 @@ header called
 header called
  from printAdminHeader (admin-functions.php [110])
    from admin-themes-editor.php [70]
+{Mon, 10 Dec 2012 16:45:50 GMT}
+  Backtrace: USER WARNING: zenJavascript (called from index.php line 7) is deprecated Use zp_apply_filter("theme_head").<br />You can disable this error message by going to the <em>deprecated-functions</em> plugin options and un-checking <strong>zenJavascript</strong> in the list of functions.<br /> in /Users/Folke/Documents/Arbete/kunder/MalinKosatha/Hemsida/zp-core/zp-extensions/deprecated-functions.php on line 76
+trigger_error called
+ from deprecated_functions::notify (deprecated-functions.php [76])
+   from zenJavascript (deprecated-functions.php [333])
+     from include (index.php [7])
+       from index.php [92]
