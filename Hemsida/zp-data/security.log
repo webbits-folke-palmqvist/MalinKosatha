@@ -1,0 +1,6 @@
+date	requestor's IP	type	user ID	user name	outcome	authority	additional information
+2012-12-10 16:50:55		Install			Success	zp_admin	version 1.4.3.5[11059]
+2012-12-10 16:51:00		Remove setup files			Success	zp_admin
+2012-12-10 16:52:17		Request add user			Success	zp_admin	Administrator
+2012-12-10 16:52:17		Blocked access			Failed		/MalinKosatha/Hemsida/zp-core/admin-users.php?saved&show-Administrator&page=users
+2012-12-10 16:52:21		Admin login	Administrator	Mathias Palmqvist	Success	zp_admin

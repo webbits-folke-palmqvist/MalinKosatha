@@ -1,4 +1,36 @@
-Zenphoto Setup v1.4.3.5[11059]: Mon, 10 Dec 2012 16:48:38 +0100
+Zenphoto Setup v1.4.3.5[11059]: Mon, 10 Dec 2012 16:50:02 +0100
 Warn: Zenphoto attempts to make log files accessable by owner only (permissions = 0600). This attempt has failed. The log file permissions are 0644 which may allow unauthorized access.
 Warn: If file permissions are not set to strict or tighter there could be a security risk. However, on some servers Zenphoto does not function correctly with tight file permissions. If Zenphoto has permission errors, run setup again and select a more relaxed permission.Set File permissions to 	readonly (0444)	strict (0644)	relaxed (0664)	loose (0666)apply.
-Setting permissions (0664) for Zenphoto package.
+Warn: Zenphoto is unable to deal with Macintosh file names containing diacritical marks. You should avoid these.
+Systemkontroll färdig
+Set Zenphoto default options
+Migrerar lib-auth data version  => version 3
+Set theme default options for effervescence_plus started
+Set theme default options for zenpage started
+Set theme default options for garland started
+Option handler for zenpage instantiated
+Set theme default options for zenpage completed
+Set theme default options for default started
+Option handler for garland instantiated
+Option handler for effervescence_plus instantiated
+Set theme default options for garland completed
+Set theme default options for effervescence_plus completed
+Set theme default options for stopdesign started
+Not: "Module mod_rewrite" fungerar. Zenphoto-alternativet "mod_rewrite" kommer att sättas till "aktiverad".
+Option handler for default instantiated
+Set theme default options for default completed
+Option handler for stopdesign instantiated
+Set theme default options for zpmobile started
+Set theme default options for stopdesign completed
+Option handler for zpmobile instantiated
+Set theme default options for zpmobile completed
+setup-functions.php deleted.
+setup-option-defaults.php deleted.
+setup-primitive.php deleted.
+setup-sqlform.php deleted.
+setup.css deleted.
+setup_permissions_changer.php deleted.
+setup_set-mod_rewrite.php deleted.
+setup_themeOptions.php deleted.
+setup.php deleted.
+setup/ deleted.
